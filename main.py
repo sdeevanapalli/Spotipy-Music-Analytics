@@ -7,7 +7,6 @@ import datetime
 from dotenv import load_dotenv
 from datetime import datetime
 
-
 load_dotenv()
 
 CLIENT_ID = os.getenv('CLIENT_ID')
@@ -28,6 +27,8 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=CLIENT_ID,
                                                      'user-top-read'))
 
 prev_data: None = None
+
+
 # 1
 def current_track():
     global prev_data
@@ -83,13 +84,6 @@ def top_artists():
         print(f"{i}. {x['name']}")
         i += 1
 
-def top_songs():
-    i = 1
-    top_songs = sp.current_user_top_tracks(limit=20, offset=0, time_range='medium_term')
-
-    for x in top_songs['items']:
-        print(f"{i}. {x['name']}")
-        i += 1
 
 # 5
 def devices():
@@ -135,33 +129,27 @@ def play_music(track_name):
     else:
         print(f"Track not found: {track_name}. Try again")
 
+
 # 8
-def time_listened():
-    current_year = datetime.now().year
+def top_songs():
+    i = 1
+    top_songs = sp.current_user_top_tracks(limit=20, offset=0, time_range='medium_term')
 
-    # Get the user's top tracks for the current year
-    top_tracks_this_year = sp.current_user_top_tracks(limit=50, time_range='long_term')
+    for x in top_songs['items']:
+        print(f"{i}. {x['name']}")
+        i += 1
 
-    # Filter tracks that were played in the current year
-    top_tracks_this_year = [track for track in top_tracks_this_year['items'] if
-                            int(track['album']['release_date'][:4]) == current_year]
-
-    # Calculate total time listened
-    total_time_ms = sum(track['duration_ms'] for track in top_tracks_this_year)
-    total_time_seconds = total_time_ms / 1000
-
-    print(f"Total time listened to music in {current_year}: {total_time_seconds} seconds")
 
 print("\n-----------------------------------------------------------------------------------------")
-print("Hello, I am Bravo, a simple bot programmed in Python. I have some tricks up my sleeve.\n\n"
-      "Press 1 for info on your current track.\n"
-      "Press 2 for finding out top 10 tracks of any artist.\n"
-      "Press 3 for finding out the lists of artists you follow on Spotify.\n"
-      "Press 4 for your top artists.\n"
-      "Press 5 for your devices.\n"
-      "Press 6 for Personal Info\n"
-      "Press 7 for playing any music you want.\n"
-      "Press 8 for total time. {Under Development, dont' use.}\n")
+print("Hello. Please Enter the Serial Number of your Choice.\n\n"
+      "1. Current Playback.\n"
+      "2. Your Top 10 Artists\n"
+      "3. Artists you Follow on Spotify\n"
+      "4. Your Top Artist Plays.\n"
+      "5. Your Live Devices.\n"
+      "6. Personal Information.\n"
+      "7. Play Music (song input)\n"
+      "8. Your Top Songs.\n")
 
 var = int(input())
 if var == 1:
@@ -180,8 +168,6 @@ elif var == 7:
     song = input("Enter the name of the song: ")
     play_music(song)
 elif var == 8:
-    time_listened()
-elif var == 9:
     top_songs()
 else:
     print("Invalid choice. Please try again.")
