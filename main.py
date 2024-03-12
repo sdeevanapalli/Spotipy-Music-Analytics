@@ -49,12 +49,13 @@ def current_track():
 
 
 # 2
-def top_ten_artist():
-    artist_name = input("Name of the artist.")
+def top_ten_songs_of_artist():
+    artist_name = input("Name of the artist. ")
     results = sp.search(q='artist:' + artist_name, type='artist')
 
     artist_id = results["artists"]['items'][0]['id']
     top_tracks = sp.artist_top_tracks(artist_id)
+    print(f"\nHere are the top ten artists of {artist_name}")
 
     i = 1
     for x in top_tracks['tracks']:
@@ -68,7 +69,7 @@ def followed_artists():
     # final = json.dumps(artists, indent=4)
 
     i = 1
-    print("List of user followed artists:")
+    print("List of artists:")
     for x in artists['artists']['items']:
         print(f"{i}. {x['name']}")
         i += 1
@@ -143,7 +144,7 @@ def top_songs():
 print("\n-----------------------------------------------------------------------------------------")
 print("Hello. Please Enter the Serial Number of your Choice.\n\n"
       "1. Current Playback.\n"
-      "2. Your Top 10 Artists\n"
+      "2. Top 10 Songs of any Artist.\n"
       "3. Artists you Follow on Spotify\n"
       "4. Your Top Artist Plays.\n"
       "5. Your Live Devices.\n"
@@ -155,7 +156,7 @@ var = int(input())
 if var == 1:
     current_track()
 elif var == 2:
-    top_ten_artist()
+    top_ten_songs_of_artist()
 elif var == 3:
     followed_artists()
 elif var == 4:
