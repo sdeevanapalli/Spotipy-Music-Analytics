@@ -186,6 +186,8 @@ elif var == 9:
 else:
     print("Invalid choice. Please try again.")
 
+print("End of Code.")
+
 # while True:
 #     current_track()
 #     time.sleep(1)
