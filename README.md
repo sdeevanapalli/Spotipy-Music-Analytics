@@ -49,6 +49,3 @@ This is a Python application that utilizes the Spotipy API to interact with Spot
 
 ## Contributing
 Contributions are welcome! If you have any suggestions or improvements, feel free to submit a pull request.
-
-## License
-This project is licensed under the [MIT License](LICENSE).
