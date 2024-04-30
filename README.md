@@ -42,7 +42,7 @@ This is a Python application that utilizes the Spotipy API to interact with Spot
 
 5. Run the Application:
     ```
-    python app.py
+    python main.py
     ```
 
 6. Follow the prompts to interact with the application.
