@@ -5,13 +5,15 @@ This is a Python application that utilizes the Spotipy API to interact with Spot
 
 ## Features
 - Current Playback: Check what's currently playing.
-- Top 10 Songs of any Artist: Discover the top tracks of any artist.
+- Top 10 Songs of an Artist: Discover the top tracks of any artist.
 - Artists You Follow: View a list of artists you follow on Spotify.
 - Your Top Artist Plays: See your top played artists.
 - Your Live Devices: View and manage your live Spotify devices.
 - Personal Information: View your Spotify profile information.
 - Play Music: Search and play any song available on Spotify.
+- Add to Queue: Search and add a song to queue on Spotify.
 - Your Top Songs: See your top played songs.
+- Queue: View your Spotify Queue.
 
 ## Requirements
 - Python 3.x
@@ -42,7 +44,7 @@ This is a Python application that utilizes the Spotipy API to interact with Spot
 
 5. Run the Application:
     ```
-    python app.py
+    python main.py
     ```
 
 6. Follow the prompts to interact with the application.
