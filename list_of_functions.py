@@ -6,6 +6,7 @@ import json
 import datetime
 from dotenv import load_dotenv
 from datetime import datetime
+import time
 
 load_dotenv()
 
@@ -178,3 +179,31 @@ def queue():
 
         print(f'{i}. {qname} - {qartist}')
         i+=1
+
+#11
+def next():
+    sp.next_track()
+    time.sleep(2)
+    nowplaying = sp.current_playback()
+
+    if nowplaying is not None and nowplaying['is_playing']:
+        name = nowplaying['item']['name']
+        artist = nowplaying['item']['artists'][0]['name']
+        album = nowplaying['item']['album']['name']
+        statement = f"\n\nNow Playing on Spotify: \n\nName: {name}\nArtist: {artist}\nAlbum: {album}"
+
+        print(statement)
+
+#12
+def previous():
+    sp.previous_track()
+    time.sleep(2)
+    nowplaying = sp.current_playback()
+
+    if nowplaying is not None and nowplaying['is_playing']:
+        name = nowplaying['item']['name']
+        artist = nowplaying['item']['artists'][0]['name']
+        album = nowplaying['item']['album']['name']
+        statement = f"\n\nNow Playing on Spotify: \n\nName: {name}\nArtist: {artist}\nAlbum: {album}"
+
+        print(statement)

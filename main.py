@@ -11,7 +11,9 @@ print("Hello. Please Enter the Serial Number of your Choice.\n\n"
       "7. Play Music (song input)\n"
       "8. Add to Queue (song input)\n"
       "9. Your Top Songs.\n"
-      "10. View Queue.\n")
+      "10. View Queue.\n"
+      "11. Play Next Track.\n"
+      "12. Play Previous Track\n")
 
 var = int(input())
 if var == 1:
@@ -50,5 +52,9 @@ elif var == 9:
     lof.top_songs(st_duration)
 elif var == 10:
     lof.queue()
+elif var == 11:
+    lof.next()
+elif var == 12:
+    lof.previous()
 else:
     print("Invalid choice. Please try again.")
