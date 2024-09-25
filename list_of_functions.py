@@ -139,8 +139,15 @@ def play_music(track_name):
 
 #8
 def add_to_queue(track_name):
+
+    def sanitize_input(user_input):
+        return user_input.replace(" ", "\\ ")
+
+    # Sanitize user input
+    sanitized_query = sanitize_input(track_name)
+
     # Search for the track
-    results = sp.search(q=track_name, type='track', limit=1)
+    results = sp.search(q=sanitized_query, type='track', limit=1)
 
     # Check if a track is found
     if results['tracks']['items']:
